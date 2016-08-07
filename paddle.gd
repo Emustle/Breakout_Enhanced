@@ -18,3 +18,4 @@ func _input(event):
 		ball.set_pos(get_pos() - Vector2(0,16))
 		get_tree().get_root().add_child(ball)
 
+ 
