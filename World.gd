@@ -7,5 +7,9 @@ export var loss = 250
 
 
 func set_score(value):
-	score = value
+	if(score < MIN_SCORE):
+		score = MIN_SCORE
+	elif (score == MIN_SCORE and value > 1 or score > MIN_SCORE):
+		score = value
 	get_node("Score").set_text("Score: "+str(score))
+	
