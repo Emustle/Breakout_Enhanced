@@ -1,6 +1,7 @@
 
 extends VBoxContainer
 
+
 func _on_Quitter_pressed():
 	get_tree().quit()
 
