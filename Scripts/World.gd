@@ -5,7 +5,8 @@ const MIN_SCORE = 0
 export var gain = 100
 export var loss = 250
 
-var GameOver = false
+var MenuReturn = false
+var Win = false
 
 func _ready():
 	set_fixed_process(true)
@@ -19,5 +20,17 @@ func set_score(value):
 	get_node("Score").set_text("Score: "+str(score))
 	
 func _fixed_process(delta):
-	if GameOver == true:
+	if (MenuReturn == true):
 		get_node("/root/globals").set_scene("res://Scenes/Menu.scn")
+	if (Win == true):
+		Win = false
+		get_node("LevelWin").show()
+		get_tree().set_pause(true)
+
+
+func _on_LevelWin_confirmed():
+	get_tree().set_pause(false)
+	get_node("/root/globals").set_scene("res://Scenes/Menu.scn")
+
+
+	
